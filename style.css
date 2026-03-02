@@ -1,0 +1,81 @@
+/*Implement Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #050510;
+	color: white;
+	min-height: 100vh;
+}
+
+h1 {
+	font-family: "Orbitron", sans-serif;
+	text-align: center;
+	text-shadow:
+		0 0 10px cyan,
+		0 0 20px cyan,
+		0 0 40px cyan;
+	color: cyan;
+	margin-top: 150px;
+}
+
+/*Styling scoreboard*/
+
+#scoreboard {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+	width: 300px;
+	height: 30px;
+	padding: 10px;
+	font-family: "Orbitron", sans-serif;
+}
+
+#score-left {
+	color: #0ff0fc;
+	font-weight: 700;
+	font-size: 40px;
+}
+
+#score-right {
+	color: #bc13fe;
+	font-weight: 700;
+	font-size: 40px;
+}
+
+/*Styling Overlay*/
+
+#overlay {
+	font-family: "Orbitron", sans-serif;
+	margin-bottom: 100px;
+}
+
+.overlay-text {
+	font-family: "Press Start 2P", system-ui;
+	font-size: 8px;
+	font-weight: 100;
+	color: gray;
+}
+
+#start-btn {
+	color: cyan;
+	background-color: transparent;
+	padding: 10px 30px 10px 30px;
+	border-radius: 5px;
+	box-shadow:
+		0 0 10px cyan,
+		0 0 20px cyan,
+		0 0 40px cyan;
+	margin-top: 25px;
+}
