@@ -75,7 +75,6 @@ h1 {
 
 #arena {
 	position: relative;
-	margin-top: 20px;
 	width: 700px;
 	height: 480px;
 	background: #0a0a1a;
@@ -122,11 +121,24 @@ h1 {
 		0 0 60px rgba(0, 245, 255, 0.3);
 }
 
-.paddle-rigth {
+.paddle-right {
 	right: 16px;
 	background: #ff006e;
 	box-shadow:
 		0 0 10px #ff006e,
 		0 0 30px #ff006e,
 		0 0 60px rgba(255, 0, 110, 0.3);
+}
+
+/*create Ball*/
+
+#ball {
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
