@@ -75,8 +75,8 @@ h1 {
 
 #arena {
 	position: relative;
-	width: 700px;
-	height: 480px;
+	width: 50vw;
+	height: 60vh;
 	background: #0a0a1a;
 	border: 2px solid rgba(0, 245, 255, 0.15);
 	border-radius: 4px;
@@ -92,7 +92,7 @@ h1 {
 	position: absolute;
 	left: 50%;
 	top: 0;
-	width: 2px;
+	width: 1vw;
 	height: 100%;
 	transform: translateX(-50%);
 	background: repeating-linear-gradient(
@@ -104,16 +104,16 @@ h1 {
 	);
 }
 
-#paddle {
+.paddle {
 	position: absolute;
-	width: 10px;
-	height: 80px;
+	width: 1vw;
+	height: 10vh;
 	border-radius: 5px;
 	transition: box-shadow 0.1s;
 }
 
-.paddle-left {
-	left: 16px;
+#player {
+	left: 48vw;
 	background: #00f5ff;
 	box-shadow:
 		0 0 10px #00f5ff,
@@ -121,8 +121,8 @@ h1 {
 		0 0 60px rgba(0, 245, 255, 0.3);
 }
 
-.paddle-right {
-	right: 16px;
+#machine {
+	right: 20;
 	background: #ff006e;
 	box-shadow:
 		0 0 10px #ff006e,
@@ -133,8 +133,8 @@ h1 {
 /*create Ball*/
 
 #ball {
-	width: 20px;
-	height: 20px;
+	width: 1vw;
+	height: 2vh;
 	background-color: white;
 	border-radius: 50%;
 	position: absolute;
