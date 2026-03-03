@@ -7,26 +7,30 @@ class Paddle {
 		this.domElement = domElement;
 		this.isPlayer = isPlayer;
 		this.positionX = this.isPlayer ? 0.1 : 48.5;
-		this.heigth = 6;
+		this.heigth = 10;
 		this.width = 1;
 		this.speed = 3;
-		this.positionY = 0 - this.width / 2;
+		this.positionY = 1 - this.width / 2;
 
 		this.update();
 	}
 	moveUp() {
-		this.positionY--;
+		if (this.positionY > 0) {
+			this.positionY--;
+		}
+
 		this.update();
 	}
 	moveDown() {
-		this.positionY++;
+		if (this.positionY < 100 - this.heigth) {
+			this.positionY++;
+		}
 		this.update();
 	}
 	update() {
 		this.domElement.style.top = this.positionY + "vh";
-		this.domElement.style.bottom = this.positionY + "vh";
 		this.domElement.style.width = this.width + "vw";
-		this.domElement.style.height = this.heigth + "vw";
+		this.domElement.style.height = this.heigth + "vh";
 	}
 }
 
@@ -42,10 +46,9 @@ function moveMachine() {
 	machine.update();
 }
 
-setInterval(moveMachine, 30);
-
 const player = new Paddle(playerElement, true);
 const machine = new Paddle(machineElement, false);
+setInterval(moveMachine, 30);
 
 document.addEventListener("keydown", (e) => {
 	if (e.code === "ArrowUp") {
