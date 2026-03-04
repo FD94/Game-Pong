@@ -20,19 +20,28 @@ class Paddle {
 		this.height = 10;
 		this.width = 1;
 
+		if (this.isPlayer) {
+			this.height = 11;
+			this.width = 1;
+		} else {
+			this.height = 24; // máquina más grande
+			this.width = 2;
+		}
+
 		this.update();
 	}
 	moveUp() {
 		if (this.positionY > 1) {
-			this.positionY--;
+			this.positionY -= this.speed;
 		}
 
 		this.update();
 	}
 	moveDown() {
-		if (this.positionY < 60 - this.height) {
-			this.positionY++;
+		if (this.positionY < 59 - this.height) {
+			this.positionY += this.speed;
 		}
+
 		this.update();
 	}
 	update() {
@@ -45,8 +54,8 @@ class Paddle {
 
 class Ball {
 	constructor() {
-		this.speedX = 0.3;
-		this.speedY = 0.2;
+		this.speedX = 0.4;
+		this.speedY = 0.3;
 		this.ballPositionX = 10;
 		this.ballPositionY = 50;
 		this.sizeBall = 2;
@@ -88,7 +97,6 @@ class Ball {
 			player.positionY < this.ballPositionY + this.sizeBall &&
 			player.positionY + player.height > this.ballPositionY
 		) {
-			console.log("COLISION PLAYER");
 			this.ballPositionX = player.positionX + player.width;
 			this.speedX *= -1;
 			return;
@@ -98,7 +106,6 @@ class Ball {
 			machine.positionY < this.ballPositionY + this.sizeBall &&
 			machine.positionY + machine.height > this.ballPositionY
 		) {
-			console.log("COLISION MACHINE");
 			this.ballPositionX = machine.positionX - this.sizeBall;
 			this.speedX *= -1;
 
@@ -136,7 +143,7 @@ let direction = 1;
 function moveMachine() {
 	machine.positionY += direction;
 
-	if (machine.positionY <= 0 || machine.positionY >= 50) {
+	if (machine.positionY <= 0 || machine.positionY >= 60 - machine.height) {
 		direction *= -1;
 	}
 
