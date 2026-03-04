@@ -3,34 +3,37 @@
 const ballElement = document.getElementById("ball");
 const playerElement = document.getElementById("player");
 const machineElement = document.getElementById("machine");
+const scoreLeftElement = document.getElementById("score-left");
+const scoreRigthElement = document.getElementById("score-rigth");
 
-var height = 10;
-var width = 1;
 class Paddle {
 	constructor(domElement, isPlayer = false) {
 		this.domElement = domElement;
 		this.isPlayer = isPlayer;
-		this.positionX = this.isPlayer ? 0 : 50;
+		this.positionX = this.isPlayer ? 0 : 49;
 		this.speed = 3;
 		this.positionY = 0;
+		this.height = 10;
+		this.width = 1;
 
 		this.update();
 	}
 	moveUp() {
 		if (this.positionY > 1) {
-			player.positionY--;
+			this.positionY--;
 		}
 
 		this.update();
 	}
 	moveDown() {
-		if (this.positionY < 60 - height) {
-			player.positionY++;
+		if (this.positionY < 60 - this.height) {
+			this.positionY++;
 		}
 		this.update();
 	}
 	update() {
 		this.domElement.style.top = this.positionY + "vh";
+		this.domElement.style.left = this.positionX + "vw";
 		this.domElement.style.width = this.width + "vw";
 		this.domElement.style.height = this.height + "vh";
 	}
@@ -38,7 +41,7 @@ class Paddle {
 
 class Ball {
 	constructor() {
-		this.speedX = 0.1;
+		this.speedX = 0.3;
 		this.speedY = 0.2;
 		this.ballPositionX = 10;
 		this.ballPositionY = 50;
@@ -63,33 +66,26 @@ class Ball {
 			return;
 		}
 
-		document.getElementById("playerposition").innerText =
-			"Player position Y:" + player.positionY;
-
-		document.getElementById("ballposition").innerText =
-			"Ball positionX: " +
-			Math.round(this.ballPositionX, 2) +
-			" | Y: " +
-			Math.round(this.ballPositionY, 2);
-
 		// collision with the paddles
 		if (
-			player.positionX < this.ballPositionX + width &&
-			//player.positionX > this.ballPositionX &&
-			player.positionY < this.ballPositionY + height &&
-			player.positionY + height > this.ballPositionY
+			player.positionX < this.ballPositionX + this.sizeBall &&
+			player.positionX + player.width > this.ballPositionX &&
+			player.positionY < this.ballPositionY + this.sizeBall &&
+			player.positionY + player.height > this.ballPositionY
 		) {
-			console.log("PASOOOO");
-
+			console.log("COLISION PLAYER");
+			this.ballPositionX = player.positionX + player.width;
+			this.speedX *= -1;
 			return;
 		} else if (
-			machine.positionX < this.ballPositionX + this.width &&
-			machine.positionX + this.width > this.ballPositionX &&
-			machine.positionY < this.ballPositionY + this.height &&
-			machine.positionY + this.height > this.ballPositionY
+			machine.positionX < this.ballPositionX + this.sizeBall &&
+			machine.positionX + machine.width > this.ballPositionX &&
+			machine.positionY < this.ballPositionY + this.sizeBall &&
+			machine.positionY + machine.height > this.ballPositionY
 		) {
-			// collision with machine paddle
-			// ...
+			console.log("COLISION MACHINE");
+			this.ballPositionX = machine.positionX - this.sizeBall;
+			this.speedX *= -1;
 
 			return;
 		}
