@@ -3,8 +3,12 @@
 const ballElement = document.getElementById("ball");
 const playerElement = document.getElementById("player");
 const machineElement = document.getElementById("machine");
-const scoreLeftElement = document.getElementById("score-left");
-const scoreRigthElement = document.getElementById("score-rigth");
+const playerScoreElement = document.getElementById("score-left");
+const machineScoreElement = document.getElementById("score-rigth");
+
+//initialScore
+let playerScore = 0;
+let machineScore = 0;
 
 class Paddle {
 	constructor(domElement, isPlayer = false) {
@@ -54,6 +58,17 @@ class Ball {
 		this.checkCollision();
 		this.updateUI();
 	}
+	reset() {
+		this.ballPositionX = 27;
+		this.ballPositionY = 30;
+		this.speedX = 0;
+		this.speedY = 0;
+		setTimeout(() => {
+			this.speedX = Math.random() > 0.5 ? 0.3 : -0.3;
+			this.speedY = (Math.random() - 0.5) * 0.5;
+		}, 1000);
+	}
+
 	checkCollision() {
 		// collision with top & bottom walls
 		if (this.ballPositionY <= 0) {
@@ -92,11 +107,17 @@ class Ball {
 
 		// collision with left & right walls
 		if (this.ballPositionX <= -1) {
-			this.ballPositionX = 0;
-			this.speedX *= -1;
+			machineScore++;
+			machineScoreElement.innerText = machineScore;
+			this.reset();
+			checkWinningScore();
+			return;
 		} else if (this.ballPositionX >= 55 - this.sizeBall) {
-			this.ballPositionX = 55 - this.sizeBall;
-			this.speedX *= -1;
+			playerScore++;
+			playerScoreElement.innerText = playerScore;
+			this.reset();
+			checkWinningScore();
+			return;
 		}
 	}
 	updateUI() {
@@ -141,3 +162,18 @@ document.addEventListener("keydown", (e) => {
 		e.preventDefault();
 	}
 });
+
+function checkWinningScore() {
+	const winningScore = 10;
+
+	if (playerScore >= winningScore || machineScore >= winningScore) {
+		alert(playerScore >= winningScore ? "¡Ganaste!" : "La máquina ganó!");
+		// Reinicia los puntajes
+		playerScore = 0;
+		machineScore = 0;
+		playerScoreElement.innerText = playerScore;
+		machineScoreElement.innerText = machineScore;
+		// Reinicia la bola
+		ball.reset();
+	}
+}

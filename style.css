@@ -59,16 +59,17 @@ h1 {
 	font-family: "Orbitron", sans-serif;
 }
 
-#score-left {
-	color: #0ff0fc;
+.score {
 	font-weight: 700;
 	font-size: 40px;
 }
 
-#score-right {
+#score-left {
+	color: #0ff0fc;
+}
+
+#score-rigth {
 	color: #bc13fe;
-	font-weight: 700;
-	font-size: 40px;
 }
 
 /* Styling arena*/
