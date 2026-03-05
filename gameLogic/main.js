@@ -176,11 +176,11 @@ document.addEventListener("keydown", (e) => {
 });
 
 function checkWinningScore() {
-	const winningScore = 5;
+	const winningScore = 7;
 
 	if (playerScore >= winningScore || machineScore >= winningScore) {
 		alert(playerScore >= winningScore ? "¡Ganaste!" : "La máquina ganó!");
-		location.href = "../index.html";
+		window.location.href = "./index.html";
 		// Reinicia los puntajes
 		playerScore = 0;
 		machineScore = 0;
