@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="./gameStyle/style.css" />
+		<title>PONG</title>
+	</head>
+	<body>
+		<h1>PONG</h1>
+
+		<div id="scoreboard">
+			<div class="score" id="score-left">0</div>
+			<div class="score-divider">:</div>
+			<div class="score" id="score-rigth">0</div>
+		</div>
+
+		<div id="arena">
+			<div class="paddle" id="player"></div>
+			<div class="paddle" id="machine"></div>
+			<div id="ball"></div>
+			<div id="center-line"></div>
+		</div>
+
+		<script src="./gameLogic/main.js"></script>
+	</body>
+</html>

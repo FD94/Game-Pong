@@ -3,25 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="./style.css" />
+		<link rel="stylesheet" href="./gameStyle/overlayStyle.css" />
 		<title>PONG</title>
 	</head>
 	<body>
-		<h1>PONG</h1>
+		<h1 id="instructions-title">Instructions</h1>
 
-		<div id="scoreboard">
-			<div class="score" id="score-left">0</div>
-			<div class="score-divider">:</div>
-			<div class="score" id="score-rigth">0</div>
-		</div>
+		<button id="start-btn">start game</button>
+		<p id="instructions-text">El primero en llegar a 10, gana!</p>
 
-		<div id="arena">
-			<div class="paddle" id="player"></div>
-			<div class="paddle" id="machine"></div>
-			<div id="ball"></div>
-			<div id="center-line"></div>
-		</div>
-
-		<script src="./main.js"></script>
+		<script src="./gameLogic/instruction.js"></script>
 	</body>
 </html>
