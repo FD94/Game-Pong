@@ -5,6 +5,7 @@ const playerElement = document.getElementById("player");
 const machineElement = document.getElementById("machine");
 const playerScoreElement = document.getElementById("score-left");
 const machineScoreElement = document.getElementById("score-rigth");
+const bounceSound = document.getElementById("bounceSound");
 
 //initialScore
 let playerScore = 0;
@@ -99,6 +100,8 @@ class Ball {
 		) {
 			this.ballPositionX = player.positionX + player.width;
 			this.speedX *= -1;
+			bounceSound.currentTime = 0;
+			bounceSound.play();
 			return;
 		} else if (
 			machine.positionX < this.ballPositionX + this.sizeBall &&
@@ -108,6 +111,8 @@ class Ball {
 		) {
 			this.ballPositionX = machine.positionX - this.sizeBall;
 			this.speedX *= -1;
+			bounceSound.currentTime = 0;
+			bounceSound.play();
 
 			return;
 		}
