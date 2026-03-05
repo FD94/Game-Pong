@@ -176,7 +176,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function checkWinningScore() {
-	const winningScore = 10;
+	const winningScore = 5;
 
 	if (playerScore >= winningScore || machineScore >= winningScore) {
 		alert(playerScore >= winningScore ? "¡Ganaste!" : "La máquina ganó!");
