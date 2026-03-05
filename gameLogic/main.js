@@ -180,7 +180,7 @@ function checkWinningScore() {
 
 	if (playerScore >= winningScore || machineScore >= winningScore) {
 		alert(playerScore >= winningScore ? "¡Ganaste!" : "La máquina ganó!");
-		location.href = "../gameLogic/instruction.js";
+		location.href = "../index.html";
 		// Reinicia los puntajes
 		playerScore = 0;
 		machineScore = 0;
