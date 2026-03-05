@@ -2,4 +2,40 @@
 
 body {
 	font-family: "Orbitron", sans-serif;
+	background-color: #070712;
+	background-image:
+		radial-gradient(
+			circle at 30% 50%,
+			rgba(0, 224, 255, 0.05),
+			transparent 60%
+		),
+		radial-gradient(
+			circle at 70% 50%,
+			rgba(255, 42, 144, 0.05),
+			transparent 60%
+		);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#instructions-title {
+	color: cyan;
+}
+
+#start-btn {
+	background-color: transparent;
+	padding: 10px 20px;
+	color: cyan;
+	border: 2px solid cyan;
+	box-shadow:
+		0 0 10px #00f5ff,
+		0 0 30px #00f5ff,
+		0 0 60px rgba(0, 245, 255, 0.3);
+	text-decoration: none;
+}
+
+#instructions-text {
+	color: gray;
 }
