@@ -35,29 +35,6 @@ After a win:
 - A message is shown.
 - The game resets and returns to the main menu.
 
-## 📂 Project Structure
-
-PONG/
-│
-├── index.html # Main menu
-├── game.html # Game screen
-│
-├── gameLogic/
-│ ├── main.js # Game logic
-│ ├── menu.js # Menu music logic
-│ └── gameMusic.js # Background music handling
-│
-├── gameStyle/
-│ ├── style.css # Game styling
-│ └── overlayStyle.css # Menu styling
-│
-├── sonidos/
-│ ├── soundBounce.wav # Ball collision sound
-│ └── mainSong.mp3 # Background music
-│
-└── images/
-└── background.png # Menu background
-
 ## ⚙️ Technologies Used
 
 - **HTML5**
